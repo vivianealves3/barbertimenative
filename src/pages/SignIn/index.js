@@ -1,8 +1,6 @@
 import React, { useRef, useState } from 'react';
-import { Image } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-
-import logo from '~/assets/logo.png';
 
 import Background from '~/components/Background';
 import { signInRequest } from '~/store/modules/auth/actions';
@@ -14,6 +12,7 @@ import {
   SubmitButton,
   SignLink,
   SignLinkText,
+  // Title,
 } from './styles';
 
 export default function SignIn({ navigation }) {
@@ -29,10 +28,20 @@ export default function SignIn({ navigation }) {
     dispatch(signInRequest(email, password));
   }
 
+  const styles = StyleSheet.create({
+    custom: {
+      fontFamily: 'BungeeShade-Regular',
+      fontSize: 50,
+      textAlign: 'center',
+      color: '#eee',
+      marginBottom: -30,
+    },
+  });
+
   return (
     <Background>
       <Container>
-        <Image source={logo} />
+        <Text style={styles.custom}>Barber Time</Text>
         <Form>
           <FormInput
             icon="mail-outline"
@@ -49,7 +58,7 @@ export default function SignIn({ navigation }) {
           <FormInput
             icon="lock-outline"
             secureTextEntry
-            placeholder="Sua senha secreta"
+            placeholder="Sua senha"
             ref={passwordRef}
             returnKeyType="send"
             onSubmitEditing={handleSubmit}

@@ -120,7 +120,9 @@ export default function Profile() {
           />
 
           <SubmitButton onPress={handleSubmit}>Atualizar perfil</SubmitButton>
-          <LogoutButton onPress={handleLogout}>Sair do Go Barber</LogoutButton>
+          <LogoutButton onPress={handleLogout}>
+            Sair do Barber Time
+          </LogoutButton>
         </Form>
       </Container>
     </Background>

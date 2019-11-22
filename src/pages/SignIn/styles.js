@@ -36,3 +36,7 @@ export const SignLinkText = styled.Text`
   font-weight: bold;
   font-size: 16px;
 `;
+
+export const Title = styled.Text`
+  font-size: 50px;
+`;

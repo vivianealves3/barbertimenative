@@ -16,6 +16,7 @@ export default function SelectProvider({ navigation }) {
       const response = await api.get('providers');
 
       setProviders(response.data);
+      console.tron.log('avatar', response.data);
     }
     loadPoviders();
   }, []);
@@ -35,8 +36,8 @@ export default function SelectProvider({ navigation }) {
               <Avatar
                 source={{
                   uri: provider.avatar
-                    ? provider.avatar.url
-                    : `https://api.adorable.io/avatars/50/${provider.name}.png`,
+                    ? `http://10.0.2.2:3333/files/${provider.avatar.path}`
+                    : `https://api.adorable.io/avatar/50/${provider.name}.png`,
                 }}
               />
               <Name>{provider.name}</Name>

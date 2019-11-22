@@ -9,7 +9,6 @@ import api from '~/services/api';
 import Background from '~/components/Background';
 
 import { Container, Avatar, Name, Time, SubmitButton } from './styles';
-import { Provider } from '../SelectProvider/styles';
 
 export default function Confirm({ navigation }) {
   const provider = navigation.getParam('provider');
@@ -35,7 +34,7 @@ export default function Confirm({ navigation }) {
         <Avatar
           source={{
             uri: provider.avatar
-              ? provider.avatar.url
+              ? `http://10.0.2.2:3333/files/${provider.avatar.path}`
               : `https://api.adorable.io/avatars/50/${provider.name}.png`,
           }}
         />

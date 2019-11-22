@@ -1,8 +1,6 @@
 import React, { useRef, useState } from 'react';
-import { Image } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-
-import logo from '~/assets/logo.png';
 
 import Background from '~/components/Background';
 import { signUpRequest } from '~/store/modules/auth/actions';
@@ -32,11 +30,20 @@ export default function SignUp({ navigation }) {
     dispatch(signUpRequest(name, email, password));
   }
 
+  const styles = StyleSheet.create({
+    custom: {
+      fontFamily: 'BungeeShade-Regular',
+      fontSize: 50,
+      textAlign: 'center',
+      color: '#eee',
+      marginBottom: -30,
+    },
+  });
+
   return (
     <Background>
       <Container>
-        <Image source={logo} />
-
+        <Text style={styles.custom}>Barber Time</Text>
         <Form>
           <FormInput
             icon="person-outline"
@@ -65,7 +72,7 @@ export default function SignUp({ navigation }) {
           <FormInput
             icon="lock-outline"
             secureTextEntry
-            placeholder="Sua senha secreta"
+            placeholder="Sua senha"
             ref={passwordRef}
             returnKeyType="send"
             onSubmitEditing={handleSubmit}
